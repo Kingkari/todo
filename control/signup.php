@@ -17,7 +17,15 @@
 	$gender = $_POST['gender'];
     $bday = $_POST['birthday'];
     
-    $sql = "INSERT INTO userinfo (ID, firstn, lastn, email, phone, gender, birthday)
-	VALUES ('', '$firstn', '$lastn', '$email','$phone', '$gender', '$bday')";
-    <form action="" method="post"></form>
+    $sql = "INSERT INTO accounts (ID, firstn, lastn, email, phone, gender, birthday)
+    VALUES ('', '$firstn', '$lastn', '$email','$phone', '$gender', '$bday')";
+    
+    if ($conn->query($sql) === TRUE) {
+    	header("Location: list.php");
+	} else {
+   	 	echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+
+	$conn->close();
+    /<form action="" method="post"></form>
     ?>
