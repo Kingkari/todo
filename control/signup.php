@@ -10,15 +10,17 @@
 	if ($conn->connect_error) {
     	die("Connection failed: " . $conn->connect_error);
     } 
-    $firstn = $_POST['firstn'];
-	$lastn = $_POST['lastn'];
-	$email = $_POST['email'];
+    $firstn = $_POST['fname'];
+	$lastn = $_POST['lname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 	$phone = $_POST['phone'];
 	$gender = $_POST['gender'];
     $bday = $_POST['birthday'];
-    
-    $sql = "INSERT INTO accounts (ID, firstn, lastn, email, phone, gender, birthday)
-    VALUES ('', '$firstn', '$lastn', '$email','$phone', '$gender', '$bday')";
+     
+
+    $sql = "INSERT INTO accounts (ID, fname, lname, email, phone, birthday, gender, password)
+    VALUES ('', '$firstn', '$lastn', '$email','$phone', '$bday', '$gender', '$password')";
     
     if ($conn->query($sql) === TRUE) {
     	header("Location: list.php");
@@ -27,5 +29,4 @@
 	}
 
 	$conn->close();
-    /<form action="" method="post"></form>
     ?>
