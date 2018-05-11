@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-</head>
+
 <?php
-session_start();
-echo $_SESSION['login'];
+    session_start();
+    $user =  $_SESSION['login']; echo $_SESSION['login'];
     $servername = "localhost";
 	$dbusername = "root";
 	$dbpassword = "root";
@@ -16,14 +15,13 @@ echo $_SESSION['login'];
 	if ($conn->connect_error) {
     	die("Connection failed: " . $conn->connect_error);
     } 
-    $sql = "SELECT * FROM accounts WHERE email='$_SESSION['login']'";
+    $sql = "SELECT * FROM accounts WHERE email='$user'";
     
-    if ($conn->query($sql) === TRUE) {
-        echo 'Hello' . $row['fname']. $row['lname'];	
-    } else {
-   	 	echo "Error: " . $sql . "<br>" . $conn->error;
-	}
-
+    $query = mysqli_query($conn, $sql);
+    $row  = mysqli_fetch_array($query);
+    
+    echo 'Hello ' . $row['fname'] .' '. $row['lname'];	
+  
 	$conn->close();
 
 
