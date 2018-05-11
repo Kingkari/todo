@@ -14,20 +14,18 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    echo  $email;<br>
-    echo $password;
-    echo "hello";
-   /* $sql = "SELECT * FROM accounts WHERE email='$email' and password='$password'";
+
+    $sql = "SELECT * FROM accounts WHERE email='$email' and password='$password'";
     
     $query = mysqli_query($conn, $sql);
     $row  = mysqli_fetch_array($query);
     if(is_array($row)) {
-        $_SESSION['login'] = $row['username']; echo $_SESSION['login'];
-          // header("Location: ../view/list.php");
+        $_SESSION['login'] = $row['email']; echo $_SESSION['login'];
+            header("Location: ../view/list.php");
         } else {
             $echo = "Invalid Username or Password!";
         }	
   
-	$conn->close();*/
+	$conn->close();
 
 ?>

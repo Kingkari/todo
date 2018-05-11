@@ -3,7 +3,7 @@
 
 <?php
     session_start();
-    $user =  $_SESSION['login']; echo $_SESSION['login'];
+    $user =  $_SESSION['login'];
     $servername = "localhost";
 	$dbusername = "root";
 	$dbpassword = "root";
