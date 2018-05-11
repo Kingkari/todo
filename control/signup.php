@@ -1,4 +1,5 @@
 <?php
+session_start();
     $servername = "localhost";
 	$dbusername = "root";
 	$dbpassword = "root";
@@ -23,7 +24,8 @@
     VALUES ('', '$firstn', '$lastn', '$email','$phone', '$bday', '$gender', '$password')";
     
     if ($conn->query($sql) === TRUE) {
-    	header("Location: list.php");
+		$_SESSION['login']=$email;
+    	header("Location: ../view/list.php");
 	} else {
    	 	echo "Error: " . $sql . "<br>" . $conn->error;
 	}
